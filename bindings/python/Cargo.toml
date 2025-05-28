@@ -1,0 +1,11 @@
+[package]
+name = "rdevid-binding-python"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.24.0"
+rdevid = { path = "../../rdevid" }

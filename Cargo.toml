@@ -1,0 +1,3 @@
+[workspace]
+members = ["rdevid", "bindings/wasm", "bindings/c", "bindings/python"]
+resolver = "3"

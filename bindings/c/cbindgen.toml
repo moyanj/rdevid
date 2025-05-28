@@ -1,0 +1,4 @@
+# ./bindings/c/cbindgen.toml
+language = "C"
+include_guard = "RDEVID_H"
+include_version = true
