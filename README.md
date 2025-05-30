@@ -1,4 +1,4 @@
-# Rust Device ID Library & Bindings
+# rdevid
 
 A project providing device identification capabilities with multiple language bindings.
 
