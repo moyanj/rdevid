@@ -56,7 +56,7 @@ nj-cli build --release
 
 ### C
 
-header file in `target/release/rdevid.h`
+The header file is in `target/release/rdevid.h`
 
 ```c
 // Example usage in C
