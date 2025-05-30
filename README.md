@@ -59,17 +59,31 @@ nj-cli build --release
 The header file is in `target/release/rdevid.h`
 
 ```c
-// Example usage in C
+#include <stdio.h>
+#include "rdevid.h"
+int main() {
+    char *id = device_id();
+    char *info = device_info();
+    printf("Device ID: %s\n", id);
+    printf("Device Info: %s\n", info);
+    free_string(id);
+    free_string(info);
+}
 ```
 
 ### Python
 ```python
-# Example usage in Python
+import rdevid
+
+print(rdevid.device_id())
+print(rdevid.device_info())
 ```
 
 ### Node.js
 ```javascript
-// Example usage in Node.js
+import { device_id, device_info } from 'rdevid';
+console.log(device_id());
+console.log(device_info());
 ```
 
 ## Development
