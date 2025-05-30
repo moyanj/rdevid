@@ -1,46 +1,91 @@
-# Rust编译命令
-```
-cargo build --release --lib
-```
+# Rust Device ID Library & Bindings
 
-# C/C++编译命令
+A project providing device identification capabilities with multiple language bindings.
 
-```
-cargo build --features cpp --no-default-features --lib
-```
-
-头文件：[`deviceid.h`](deviceid.h)
-
-测试脚本编译命令：
-```
-g++ test.cpp -o test -L./target/release -ldeviceid
-```
-
-# Python编译命令
+## Workspace Structure
 
 ```
-cd python-bindings
+.
+├── rdevid/                # Core Rust library
+├── bindings/              # Language bindings
+│   ├── wasm/              # WebAssembly bindings
+│   ├── c/                 # C bindings (FFI)
+│   ├── python/            # Python bindings
+│   └── node/              # Node.js bindings
+├── Cargo.toml             # Workspace configuration
+└── Cargo.lock             # Dependency lock file
+```
+
+## Features
+
+- Cross-platform device identification
+- Multiple language bindings (WASM, C, Python, Node.js)
+- Workspace organization for modular development
+
+## Building
+
+```bash
+# Build rust library
+cd rdevid
+cargo build --release 
+
+# Build c bindings
+cd bindings/c
+cargo build --release
+
+# Build python bindings
+cd bindings/python
 maturin build --release
-```
 
-wheel在`target/wheels`下
+# Build wasm bindings
+cd bindings/wasm
+wasm-pack build --release
 
-# WASM编译命令
-
-1. bundler模式
-
-```
-wasm-pack build --target bundler --release
-```
-
-2. web模式
+# Build node bindings
+cd bindings/node
+nj-cli build --release
 
 ```
-wasm-pack build --target web --release
+
+## Language Bindings Usage
+
+### WebAssembly
+```javascript
+// Example usage in JavaScript
 ```
 
-3. node模式
+### C
 
+header file in `target/release/rdevid.h`
+
+```c
+// Example usage in C
 ```
-wasm-pack build --target nodejs --release
+
+### Python
+```python
+# Example usage in Python
 ```
+
+### Node.js
+```javascript
+// Example usage in Node.js
+```
+
+## Development
+
+To add a new binding:
+1. Create a new directory under `bindings/`
+2. Add the member to `Cargo.toml` workspace members
+3. Implement the binding following existing patterns
+
+## Contributing
+
+Contributions welcome! Please:
+1. Open an issue to discuss changes
+2. Fork the repository and create a PR
+3. Ensure all bindings are tested
+
+## License
+
+MIT
