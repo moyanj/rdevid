@@ -1,0 +1,16 @@
+[package]
+name = "rdevid-binding-node"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+node-bindgen = { version = "6.1.0" }
+rdevid = { path = "../../rdevid" }
+
+[build-dependencies]
+node-bindgen = { version = "6.1.0", default-features = false, features = [
+    "build",
+] }
